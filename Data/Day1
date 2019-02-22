@@ -1,0 +1,31 @@
+浏览脚本	cat /etc/shells
+查找命令	which   (PATH)查找cp
+
+路径：	绝对路径（从根目录起始到达目标位置的路径）
+	相对路径
+	远程路径　本机之外的资源路径
+		方法：　　协议：//用户名：密码＠位置　路径：端口
+		例如：	http://haizei.com
+			ftp://user:passwd@ftp.haizei.com:21
+
+命令ll 等效于　ls -al
+输出　权限、文件数、所属用户、所属群组、文件大小、常见日期、文件名
+
+第一列：权限具体内容
+	文件类型、所属用户权限、所属组权限、其他用户权限
+	  d	  rwx
+    (directory)
+文件类型：-　regular file普通文件
+	ｄ directory　目录
+	l link链接
+	b block块设备
+	c character
+	s socket
+	p pipe管道
+所属用户权限：rwx
+
+whoami
+
+su - name
+
+

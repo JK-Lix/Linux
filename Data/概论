@@ -1,0 +1,46 @@
+当输入一条命令时，若“权限不够“则sudo!!即可
+
+
+apt-get：
+	update		更新源信息，该操作将访问所有源列表，并回去最新的软件信息
+	upgrade		将自己本地的程序与源信息列表进行比对，并升级为最新版本
+	install A	安装特定软件，软件名完全匹配
+apt-cache search A	在apt缓存的软件列表中查找软件，模糊匹配
+	remove A	删除已安装的软件A，但保留配置文件
+	--purge remove A删除软件A病删除配置文件
+	autoremove A	删除软件A，并删除为了满足A的依赖而存在的软件，该命令慎用
+	autoclean	删除apt-get安装软件后，在/var/cache/apt/archives/中的所有软件安装包
+
+
+其他
+dpkg -i a.deb		使用安装包a.deb
+tldr ls 		使用tldr查看ls命令
+echo			向屏幕打印内容。搭配重定向符对文件做一些重写或者追加
+mv			移动文件   dev/null或dev/zero系统垃圾桶，利用mv移动，或者修改文件名：mv oldname newname
+vim			文本编辑器（IDE）
+
+目录操作
+mkdir			创建目录
+pwd			查看目前工作目录
+cd /.../		打开工作路径
+cd ..			返回上级目录
+cd -			返回上次目录
+ls -a			浏览所有
+   -f			文件
+   -l			列表
+
+
+
+文件删除
+rm			删除
+rm -f			force强制删除
+   -r			递归删除
+   -rf			强制递归删除（跑路）
+
+
+文件读取
+cat			强制读
+more			按页读取查看大文件
+less			与more类似，但less可以向上翻页（面试命令）
+head			默认获取文件的前10行
+tail			与head恰好相反，获取文件的末尾十行

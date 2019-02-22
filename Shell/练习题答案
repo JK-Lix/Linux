@@ -1,0 +1,41 @@
+1.
+echo $[`cut -c1-17  aaa.txt | tr ' ' '+'`]
+cat test.log | tr 'A-Z' 'a-z'
+
+2.
+echo $PATH | tr ':' '\n' | tail -1
+
+3.
+export | cut -c12-
+
+4.
+last reboot
+
+5.
+cat /etc/passwd | tr ':' ' ' | sort -k1
+
+6.
+cat /etc/passwd | tr ':' ' ' | sort -k3
+
+7.
+last | grep [a-zA-Z] | grep -v "wtmp begins" | grep -v "reboot"  | grep -v "shutdown" | wc -l
+
+8.
+last | grep [a-zA-Z] | grep -v "wtmp begins" | grep -v "reboot"  | grep -v "shutdown" | cut -d " " -f 1 | sort | uniq -c | sort -n
+
+
+
+
+9.
+ls /etc | tr ' ' '\n' | split -l 10
+
+10.
+cat /etc/passwd | head -n 20 | tail -n 10 | cut -d : -f 1 | xargs -n 1 id
+
+
+11.
+cut -d : -f 1 /etc/passwd | xargs -e "sync" -n 1 id
+
+12.
+cat a.txt | tr -s " " "\n" |sort|uniq -c |sort -r
+
