@@ -12,16 +12,14 @@
 char str[30];
 
 char* my_inet_ntoa(unsigned long inaddr) {
-    int a[4],i;
-    char b[20];
+    int a[4];
     
+    a[0] = ((inaddr & 0x000000ff));
+    a[1] = ((inaddr & 0x0000ff00) >> 8);
+    a[2] = ((inaddr & 0x00ff0000) >> 16);
+    a[3] = ((inaddr & 0xff000000) >> 24);
     
-    sprintf(b,"%d.", a[0] = ((inaddr & 0x000000ff)));
-    sprintf(b,"%s%d.", b, a[1] = ((inaddr & 0x0000ff00) >> 8));
-    sprintf(b,"%s%d.", b, a[2] = ((inaddr & 0x00ff0000) >> 16));
-    sprintf(b,"%s%d", b, a[3] = ((inaddr & 0xff000000) >> 24));
-    sprintf(str, "%s", b);
-
+    sprintf(str, "%d.%d.%d.%d", a[0], a[1], a[2], a[3]);
     return str;
     
 }
