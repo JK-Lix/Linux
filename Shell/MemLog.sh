@@ -16,11 +16,10 @@ a=$[$a - 1]
 MemEmptyInfoCal=`echo $MemEmptyInfo| cut -c -$a`
 
 MemPercent=`echo "scale=2; 100 * $MemUsedInfoCal / $MemAllInfoCal" | bc`
-
 MemLstPct=`cat Memlog.txt | tail -1`
-MemLstPct=`echo "scale=2; 0.3 * $MemLstPct + $MemPercent * 0.7" | bc`
+MemLstPct=`echo "scale=2; 3 * $MemLstPct + $MemPercent * 7" | bc`
 echo $MemLstPct >> Memlog.txt
 
-Date=`date "+%Y-%m-%d__%H:%M:%S"`
+Date=`date +"%Y-%m-%d__%H:%M:%S"`
 
 echo $Date"  "$MemAllInfo"  "$MemEmptyInfo"  "$MemPercent"%  "$MemLstPct"%"

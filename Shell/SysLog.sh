@@ -34,8 +34,6 @@ fi
 MemInfo=`bash MemLog.sh`
 Memsize=`echo $MemInfo | awk '{printf("%s", $2)}'`
 Mem1=`echo $MemInfo | awk '{printf("%s",$4)}'`
-a=$[#Mem1]
-Mem=`echo ${Mem1%%\%}`
 Mlevel=`echo nomal`
 if [[ `echo $Mem ">=70.00"` ]];then
     Mlevel=`echo warning`
