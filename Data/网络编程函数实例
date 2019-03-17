@@ -1,0 +1,49 @@
+struct sockaddr_in  {
+    sin_family;
+    struct in_addr sin_addr;
+    sin_port;
+
+}
+
+
+
+struct sockaddr_in addr, clientaddr;
+int fd = socket(AF_INET,SOCK_STREAM, 0);
+bing(fd, (struct sockaddr *)&addr, sizeof(addr));
+if ((sockfd = accept(fd, (struct sockaddr*)&clientaddr, &len)) < 0) {
+    perror("accept");
+}
+
+
+struct sockaddr_in serveraddr;
+int fd = socket(AF_INET, SOCK_STREAM, 0);
+if (connect(fd, (struct sockaddr *)&serveraddr, sizoef(serveraddr)) < 0) {
+    perror("eonnect");
+}
+
+
+
+sendro write sendmsg
+
+recvfrom read
+
+
+
+
+setsockopt
+getsockopt
+getpeername
+gethostname
+inet_ntoa
+inet_aton
+htons
+htonl
+ntohl
+ntohs
+close
+inet_addr
+
+
+
+
+
