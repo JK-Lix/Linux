@@ -1,0 +1,9 @@
+create database test;
+
+create table SensorData(
+ID integer primary key, 
+SendorID integer, 
+siteNum integer, 
+Time varchar(12), 
+SensorParameter REAL 
+);
