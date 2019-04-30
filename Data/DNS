@@ -1,0 +1,72 @@
+socket()
+int socket(int domain, int type, int protocol);
+domain:
+	AF_INET, AF_INET6, AF_LOCAL, AF_ROUTE
+type:
+	SOCK_STREAM, SOCK_DGRAM, SOCK_PACKET, SOCK_SEQPACKET
+protocol:
+	I{ROTO_TCP, IPPTOTO_UDP, IPPROTO_STCP,IPR....
+
+
+BIND()绑定IP地址及端口
+int bind(int skcfd, const struct sockaddr *addr, socketlen_t addrlen);
+sockfd套接字描述符,绑定。调用socket返回的文件描述符
+addr时指向数据结构struct sockaddr的指针，保存地址（端口和IP信息）
+
+htons()作用时将端口号由主机字节序转换为网络字节序的整数值
+ntoh1()相反
+inet_addr()作用时将IP字符串转化为一个网络字节序的整数值，用于搜查卡顿的人——in.sin_addr.s_addr
+inet_ntoa()作用时讲一个sin_addr结构体输出
+
+
+listen()监听socket
+int listen(int sockfd, int backlog);
+sockfd时调用socket()返回的套接字文件描述符
+backlog实在进入队列中允许的连接数目
+返回值:发生错误是返回-1，并设置全局变量
+
+connect()建立连接
+int connect(int skcofd, const struct sockaddr *addr, socklen_t addrlen);
+sockfd时调用socket()并返回的套接字文件描述符
+addr时保存这目的端口的。。。
+
+
+accept()接受连接
+int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
+accept()用来接受参数sockfd的socket连线
+参数sockfd的socket必须先经过bingd()、listen()函数处理过，当有连线进来时accept()会返回一个新的socket处理代码，往后的数据传送与读取就是经由新的socket处理，二原来的参数sockfd的socket能继续使用accept()来接受新的连线要求，连线成功是，参数adr所指的结构会被系统填入远程主机的地址数据，参数addrlen为sockaddr的结构长度
+
+返回值：成功则返回新的socket处理代码，失败返回-1，错误原因存放于errno中
+
+getpeername()获取对端地址
+int getpeername(int sockfd, struct sockaddr (addr,int *addrlen);
+sockfd时连接的流式套接字的描述符
+addr是一个只想结构Struct sockaddr(或者是struct sockaddr_in)的指针，它保存这连接的另一边的信息
+addrlen是一个int型的指针，它初始化为sizeof(struct sockaddr)
+
+
+gethostname()获取本地主机名
+
+close()关闭连接
+int close(int fd)
+
+
+
+
+
+send()发送数据
+int send(int sockfd, const void *msg, int len, int flags);
+sockfd时你想发送数据的套接字描述符（或者是调用socket()或者是accept()返回的。)msg时只想你想发送的数据的指针。len时数据长度，把flags设置为0即可
+返回值:返回实际发送的数据的字节数
+错误的时候返回—1病设置errno
+
+
+recv()接受数据
+int recv(int sockfd, void *buf, int len, unsigned int flags);
+sockfd是要读的套接字描述符
+buf时要读的信息的缓冲
+len时缓冲的最大长度
+flags可以设置为0
+返回值：实际读入缓冲的数据的字节数。或者在错误的时候返回-1同事设置errno
+
+close()
